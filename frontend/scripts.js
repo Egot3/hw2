@@ -18,7 +18,7 @@ function toBackend(f) {
     setTimeout(() => {
       f();
     }, delay);
-  }).then(rec());
+  }).then(()=>rec());
 }
 
 function forButton() {
@@ -78,13 +78,24 @@ function add_new_task() {
   forgetMeNot.addEventListener("click", function (event) {
     const parentElement = this.parentElement;
     const index = task_list.indexOf(parentElement)
+    forgetMeNot.disabled = true
+    forgetMeNot.style.cursor = "not-allowed"
 
-    forgetMeNot.innerHTML = `
-    <div class="cooldiv">Σ(°ロ°)!!!</div>
-  `
+    let sw = true;
+    let text = `Σ(°ロ°)!!!`
+
+    setInterval(()=>{
+      forgetMeNot.innerHTML = `
+      <div class="cooldiv">${text}</div>
+      `
+      text = sw ? `Σ(°ロ°)!!!`:`(-q-)`
+      sw=!sw
+      rec()
+    }, 1000)
 
     toBackend(() => {
       console.log("удаление")
+      forgetMeNot.classList.add('bye')
       task_list.splice(index, 1);
       
     }).then(rec());

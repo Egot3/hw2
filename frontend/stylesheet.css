@@ -17,6 +17,14 @@
     color: gray;
 }
 
-.cooldiv{
-    content: "(-q-)";
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.bye{
+    animation: spin 1s linear infinite;
+    transition: all 0.8s ease-in-out;
+    transform: scale(0.8);
+    opacity: 0;
 }
