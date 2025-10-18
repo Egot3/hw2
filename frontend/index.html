@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YU!</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    
+</head>
+<body>
+<div class="wrapper">
+    <div class="textnadd">
+        <input id="task" type="text" placeholder="Новая задача">
+        <button id="add" disabled onclick="forButton()" >+</button>
+    </div>
+
+    <div class="filters">
+        <div>
+            <input type="radio" name="filter" id="all" checked />
+            <label>Все</label>
+        </div>
+        <div>
+            <input type="radio" name="filter" id="stopped"/>
+            <label>Выполненые</label>
+        </div>
+        <div>
+            <input type="radio" name="filter" id="ongoing"/>
+            <label>Невыполненые</label>
+        </div>
+    </div>
+    
+    <div id="tasks"></div>
+    <div>Осталось задач: <span id="count">0</span></div>
+</div>
+<script src="scripts.js"></script>
+</body>
+</html>

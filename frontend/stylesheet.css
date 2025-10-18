@@ -1,0 +1,22 @@
+.filters{
+    display: flex;
+}
+.wrapper{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+#task{
+    width: 19em;
+}
+.ongoing{
+    color: black;
+}
+.stopped{
+    color: gray;
+}
+
+.cooldiv{
+    content: "(-q-)";
+}
