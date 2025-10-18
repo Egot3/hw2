@@ -86,21 +86,22 @@ function add_new_task() {
     forgetMeNot.style.cursor = "not-allowed"
 
     let sw = true;
+    let text = `Σ(°ロ°)!!!`
 
     setInterval(()=>{
-      let text = sw ? `Σ(°ロ°)!!!`:`(-q-)`
-      sw=!sw
       forgetMeNot.innerHTML = `
       <div class="cooldiv">${text}</div>
       `
-      
+      text = sw ? `Σ(°ロ°)!!!`:`(-q-)`
+      sw=!sw
       rec()
-    }, 500)
-    forgetMeNot.classList.add('bye')
+    }, 1000)
+
     toBackend(() => {
       console.log("удаление")
-      
-      task_list.splice(index, 1);
+      forgetMeNot.classList.add('bye')
+      new Promise((res,rej)=>setTimeout(()=>{}, 800))
+      task_list.splice(index, 1)
       
     }).then(rec());
     toBackend(()=>rec())
