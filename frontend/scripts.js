@@ -96,10 +96,10 @@ function add_new_task() {
       
       rec()
     }, 500)
-
+    forgetMeNot.classList.add('bye')
     toBackend(() => {
       console.log("удаление")
-      forgetMeNot.classList.add('bye')
+      
       task_list.splice(index, 1);
       
     }).then(rec());
