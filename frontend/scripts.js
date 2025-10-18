@@ -9,7 +9,9 @@ let filter = "all";
 let task_list = Array();
 
 input.addEventListener("input", () => {
-  addButton.disabled = input.value.trim() === "";
+  let t = input.value.trim() === ""
+  addButton.disabled = t
+  addButton.style.cursor = t ? 'not-allowed': 'pointer'
 });
 
 function toBackend(f) {
@@ -25,6 +27,8 @@ function forButton() {
   toBackend(() => add_new_task());
   rec();
   addButton.disabled = true;
+    addButton.style.cursor = 'not-allowed'
+
 }
 
 radioButtons.forEach((element) => {
@@ -82,16 +86,16 @@ function add_new_task() {
     forgetMeNot.style.cursor = "not-allowed"
 
     let sw = true;
-    let text = `Σ(°ロ°)!!!`
 
     setInterval(()=>{
+      let text = sw ? `Σ(°ロ°)!!!`:`(-q-)`
+      sw=!sw
       forgetMeNot.innerHTML = `
       <div class="cooldiv">${text}</div>
       `
-      text = sw ? `Σ(°ロ°)!!!`:`(-q-)`
-      sw=!sw
+      
       rec()
-    }, 1000)
+    }, 500)
 
     toBackend(() => {
       console.log("удаление")
